@@ -11,10 +11,10 @@ const UsersClient = ({ initialUsers }: Props) => {
       <ul className={css.list}>
         {initialUsers.map((user) => (
           <li key={user.id} className={css.card}>
-            <h3>{user.name}</h3>
-            <p>{user.email}</p>
-            <p>{user.address.city}</p>
-            <button>Edit</button>
+            <h3 className={css.userTitle}>{user.name}</h3>
+            <p className={css.userEmail}>Email: {user.email}</p>
+            <p className={css.userCity}>City: {user.address.city}</p>
+            <button className={css.button}>Edit</button>
           </li>
         ))}
       </ul>

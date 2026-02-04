@@ -1,0 +1,48 @@
+.section {
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 48px;
+  column-gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: calc((100% - 146px) / 3);
+  border: 1px solid grey;
+  padding: 15px;
+}
+
+.userTitle {
+  font-size: large;
+}
+
+.userEmail {
+  color: blue;
+}
+
+.userCit {
+}
+
+.button {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  width: 100%;
+  height: 34px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 125%;
+  color: #3470ff;
+  border-color: #3470ff;
+}
+
+.button:hover {
+  background-color: #dadde1;
+}
