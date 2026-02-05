@@ -1,4 +1,48 @@
 .section {
+  margin: 64px 0px;
+  padding: 0 24px;
+}
+
+.filterSection {
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+
+  justify-content: center;
+  align-items: end;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: rgb(136, 133, 133);
+}
+
+.input {
+  border-radius: 10px;
+
+  display: block;
+  padding: 8px;
+  outline: none;
+}
+
+.resetButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: #3470ff;
+  border-color: #3470ff;
+  padding: 8px 12px;
+}
+
+.resetButton:hover {
+  background-color: #dadde1;
 }
 
 .list {

@@ -1,6 +1,9 @@
 import { User, UserFormData } from "@/types/user";
 import { useForm } from "react-hook-form";
+import { userEditSchema } from "@/validation/userEditSchema";
+
 import css from "./UserEditForm.module.css";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 interface Props {
   user: User;
@@ -9,12 +12,13 @@ interface Props {
 }
 
 export default function UserEditForm({ user, onSave, onCancel }: Props) {
-  // Using React Hook Form for efficient form state management and built-in validation to avoid unnecessary re-renders.
+  // Using React Hook Form for efficient form state management
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<UserFormData>({
+    resolver: yupResolver(userEditSchema),
     defaultValues: {
       name: user.name,
       email: user.email,
@@ -26,36 +30,20 @@ export default function UserEditForm({ user, onSave, onCancel }: Props) {
     <form onSubmit={handleSubmit(onSave)} className={css.form}>
       <div className="mb-3">
         <label>Name</label>
-        <input
-          {...register("name", { required: "Name is required" })}
-          className={css.input}
-          autoFocus
-        />
-        {errors.name && (
-          <span className={css.error}>{errors.name.message}</span>
-        )}
+        <input {...register("name")} className={css.input} autoFocus />
+        {errors.name && <span>{errors.name.message}</span>}
       </div>
 
       <div className="mb-3">
         <label>Email</label>
-        <input
-          {...register("email", {
-            required: "Email is required",
-            pattern: { value: /^\S+@\S+$/i, message: "Invalid email address" },
-          })}
-          className={css.input}
-        />
-        {errors.email && (
-          <span className={css.error}>{errors.email.message}</span>
-        )}
+        <input {...register("email")} className={css.input} />
+        {errors.email && <span>{errors.email.message}</span>}
       </div>
 
       <div className="mb-3">
         <label>City</label>
-        <input
-          {...register("city", { required: "City is required" })}
-          className={css.input}
-        />
+        <input {...register("city")} className={css.input} />
+        {errors.city && <span>{errors.city.message}</span>}
       </div>
 
       <div className="flex gap-2">
